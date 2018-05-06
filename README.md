@@ -70,12 +70,33 @@ CREATE EXTERNAL TABLE [dbo].[CustomerInformation]
   [CustomerName] [varchar](50) NOT NULL, 
   [Company] [varchar](50) NOT NULL) 
 WITH 
-( DATA_SOURCE = MyElasticDBQueryDataSrc) 
+( DATA_SOURCE = MyElasticDBQueryDataSrc) ;
 go
+
+7. Run query to see the results form inner join:
+USE [jackeqtest]
+GO
 
 SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company 
 FROM OrderInformation 
 INNER JOIN CustomerInformation 
-ON CustomerInformation.CustomerID = OrderInformation.CustomerID 
+ON CustomerInformation.CustomerID = OrderInformation.CustomerID;
 go
 
+8. Now we can start the Power BI Desktop
+
+9. Connect to the Azure SQL DB server jackeqtestsrv
+
+10. Select these two tables and specify DIRECT QUERY
+
+11. Create a Relationship based on CustomerID
+
+12. Create visualizations in Power BI
+
+13. Save all your work to a pbix file and publish it to PowerBi.com
+
+14. Log into your PowerBI.com account and reenter the connection info for jackeqtestsrv
+
+15. YOu by now should see the report and you can pin the report in live to a Dashboard.
+
+16. Finally you should see the dashboard like tha attached PNG image.
